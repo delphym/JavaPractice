@@ -12,7 +12,9 @@ public final class BracketChallengeTest {
 		assertFalse(BracketChallenge.check("["));
 		assertTrue(BracketChallenge.check("<[({})]>"));
 		assertTrue(BracketChallenge.check("[[[]]]"));
+		assertFalse(BracketChallenge.check("[[[]]]]"));
 		assertTrue(BracketChallenge.check("/D${F}DFS{/}.(ddd)"));
 		assertFalse(BracketChallenge.check("{(])})"));
-		assertFalse(BracketChallenge.check("]xyz["));  	}
+		assertFalse(BracketChallenge.check("]xyz["));
+	}
 }

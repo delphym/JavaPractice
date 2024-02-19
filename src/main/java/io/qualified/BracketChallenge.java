@@ -9,7 +9,7 @@ public class BracketChallenge {
 		public static boolean check(String str) {
 			List<Character> brackets = new ArrayList<>();
 
-			Map<Character, Character> bracketMap = new HashMap();
+			Map<Character, Character> bracketMap = new HashMap<>();
 			bracketMap.put('[', ']');
 			bracketMap.put('{', '}');
 			bracketMap.put('(', ')');
@@ -17,10 +17,10 @@ public class BracketChallenge {
 
 			for (char currentChar : str.toCharArray()) {
 				for (Map.Entry<Character, Character> charEntry : bracketMap.entrySet()) {
-					if (charEntry.getKey().equals(currentChar)) {
+					if (charEntry.getKey().equals(currentChar)) {           //finding opening bracket
 						brackets.add(currentChar);
 						break;
-					} else if (charEntry.getValue().equals(currentChar)) {
+					} else if (charEntry.getValue().equals(currentChar)) {      //getting corresponding closing bracket
 						if (!brackets.isEmpty() &&
 								brackets.get(brackets.size() - 1).equals(charEntry.getKey())) {
 							brackets.remove(brackets.size() - 1);
@@ -36,7 +36,15 @@ public class BracketChallenge {
 		}
 
 	public static void main(String[] args) {
-			String input = "]";
-			System.out.println("Input string: '" +  input + "'  => " + BracketChallenge.check(input));
+		String input = "]"; System.out.println("Input string: '" +  input + "'  => " + BracketChallenge.check(input));
+		input = "[]"; System.out.println("Input string: '" + input + "' => " + BracketChallenge.check(input));
+		input = "]"; System.out.println("Input string: '" + input + "' => " + BracketChallenge.check(input));
+		input = "["; System.out.println("Input string: '" + input + "' => " + BracketChallenge.check(input));
+		input = "<[({})]>"; System.out.println("Input string: '" + input + "' => " + BracketChallenge.check(input));
+		input = "[[[]]]"; System.out.println("Input string: '" + input + "' => " + BracketChallenge.check(input));
+		input = "[[[]]]]"; System.out.println("Input string: '" + input + "' => " + BracketChallenge.check(input));
+		input = "/D${F}DFS{/}.(ddd)"; System.out.println("Input string: '" + input + "' => " + BracketChallenge.check(input));
+		input = "{(])})"; System.out.println("Input string: '" + input + "' => " + BracketChallenge.check(input));
+		input = "]xyz["; System.out.println("Input string: '" + input + "' => " + BracketChallenge.check(input));
 	}
 }
